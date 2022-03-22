@@ -40,12 +40,17 @@ h1 {
 }
 
 a {
+    color: var(--text-color);
     text-decoration: none;
 }
 
 img {
     height: auto;
     width: 100%;
+}
+
+ul {
+    list-style: none;
 }
 
 .container {
@@ -95,20 +100,30 @@ img {
 }
 
 #header .menu {
+    display: flex;
+    justify-content: center;
     height: 100%;
 }
 
 #header .menu--item {
     height: 100%;
-    display: inline-flex;
-    align-items: center;
     padding: 0 16px;
+    font-weight: 400;
+}
+
+.menu--item a {
+    display: flex;
+    align-items: center;
     color: var(--text-color);
+    height: 100%;
 }
 
 #header .menu--item__active {
-    color: var(--base-color);
     border-bottom: 1px solid var(--base-color);
+}
+
+#header .menu--item__active > a {
+    color: var(--base-color);
 }
 
 /*############### INICIO ###############*/
@@ -148,9 +163,10 @@ img {
     border-radius: 0.25remrem;
     align-items: center;
     font: 1rem;
+    cursor: pointer;
 }
 
-.inicio--main .btn:hover {
+.btn:hover {
     background-color: var(--base-color-alt);
     transition: background-color 0.3s;
     
@@ -273,11 +289,10 @@ img {
 }
 
 .servicos--cards .card .icon{
-    height: 5rem;
-    width: 5rem;
-    display: block;
-    margin: 0 auto;
+    font-size: 5rem;
+    text-align: center;
     margin-bottom: 1.5rem;
+    color: var(--base-color);
 }
 
 .servicos--cards .card > h2 {
@@ -371,11 +386,9 @@ img {
     font-weight: bold;
 }
 
-#contato .text .btn > img {
-    height: 1.5rem;
-    width: 1.5rem;
+#contato .text .btn > .icon {
     margin-right: 0.5rem;
-    display: inline-block;
+    color: var(--background0);
 }
 
 #contato .contacts {
@@ -390,10 +403,9 @@ img {
     display: inline-flex;
 }
 
-#contato .contacts .card > img {
-    height: 1.5rem;
-    width: 1.5rem;
+#contato .contacts .card .icon {
     margin-right: 0.5rem;
+    color: var(--base-color);
 }
 
 /*############### Footer ###############*/
@@ -429,12 +441,12 @@ img {
 
 #footer .socialMediaIcons {
     display: inline-flex;
+    justify-content: end;
     align-items: center;
     width: 25.25rem;
 }
 
-#footer .socialMediaIcons > img{
-    height: 1.5rem;
-    width: 1.5rem;
+#footer .socialMediaIcons .icon {
+    color: var(--background0);
     margin: 0 1rem;
 }

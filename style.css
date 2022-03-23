@@ -1,3 +1,4 @@
+
 :root {
     --hue: 159;
     --base-color: hsl(var(--hue) 36% 57%);
@@ -17,6 +18,7 @@
                                       var(--base-color) 0%, 
                                       var(--base-color-second) 100%);
     --header-height: 4.2rem;
+    --container-margin: 1.5rem;
 }
 
 * {
@@ -54,7 +56,11 @@ ul {
 }
 
 .container {
-    margin: 0 4.5rem;
+    margin: 0 var(--container-margin);
+}
+
+section {
+    overflow: hidden;
 }
 
 .divider1 {
@@ -70,6 +76,8 @@ ul {
     background: var(--color-gradient2);
 }
 
+/*############### Header ###############*/
+
 #header {
     width: 100%;
     height: var(--header-height);
@@ -80,22 +88,23 @@ ul {
     z-index: 999;
 }
 
-#header nav {
+#header .container {
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-#header .container {
-    height: 100%;
-} 
-
 #header .logo {
-    font: 700 1.875rem 'Poppins', sans-serif;
+    font: 700 1.3125rem 'Poppins', sans-serif;
     color: var(--title-color);
 }
 
 #header .logo span {
+    color: var(--base-color);
+}
+
+#header .dropdown > .icon{
     color: var(--base-color);
 }
 
@@ -130,19 +139,41 @@ ul {
 
 #inicio {
     margin-top: var(--header-height);
-    padding-top: 9.2rem;
-    padding-bottom: 10.75rem;
+    padding-top: 4.5rem; 
+    padding-bottom: 5rem;
     background-color: var(--background1);
 }
 
 #inicio .container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    gap: 1rem;
+}
+
+.inicio--image {
+    position: relative;
+    left: calc(-1*var(--container-margin));
+}
+
+.inicio--image > img {
+    width: 100%;
+    border-radius: 0.25rem;
+}
+
+.inicio--image::before {
+    content: '';
+    position: absolute;
+    top: -2.5rem;
+    left: 2.875rem;
+    width: 100%;
+    height: 100%;
+    background-color: var(--base-color-second);
+    z-index: -1;
+    border-radius: 0.25rem;
 }
 
 .inicio--main {
-    width: 33.3333%;
     padding-top: 1.6rem;
+    text-align: center;
 }
 
 .inicio--main > h1 {
@@ -160,7 +191,7 @@ ul {
     background-color: var(--base-color);
     color: var(--background1);
     padding: 0 2rem;
-    border-radius: 0.25remrem;
+    border-radius: 0.25rem;
     align-items: center;
     font: 1rem;
     cursor: pointer;
@@ -169,49 +200,23 @@ ul {
 .btn:hover {
     background-color: var(--base-color-alt);
     transition: background-color 0.3s;
-    
 }
-
-.inicio--image {
-    position: relative;
-    width: 50%;
-    margin-right: 50px;
-}
-
-.inicio--image > img {
-    width: 100%;
-    border-radius: 0.25rem;
-}
-
-.inicio--image::before {
-    content: '';
-    position: absolute;
-    top: -4.25rem;
-    left: 6rem;
-    width: 100%;
-    height: 100%;
-    background-color: var(--base-color-second);
-    z-index: -1;
-    border-radius: 0.25rem;
-}
-
 
 /*############### Sobre ###############*/
 
 #sobre {
-    padding-top: 12.1rem;
-    padding-bottom: 10rem;
+    padding-top: 6.25rem;
+    padding-bottom: 5rem;
 }
 
 #sobre .container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    gap: 2rem;
 }
 
 .sobre--image {
     position: relative;
-    width: 50%;
-    left: -4.5rem;
+    left: calc(-1*var(--container-margin));
 }
 
 .sobre--image > img {
@@ -222,8 +227,8 @@ ul {
 .sobre--image::before {
     content: '';
     position: absolute;
-    top: -2.1rem;
-    left: -2.1rem;
+    top: -1.375rem;
+    left: -1.375rem;
     width: 100%;
     height: 100%;
     background-color: var(--base-color-second);
@@ -232,7 +237,7 @@ ul {
 }
 
 .sobre--main {
-    width: 50%;
+    width: 100%;
 }
 
 .sobre--main > h1 {
@@ -248,12 +253,6 @@ ul {
 #servicos {
     padding: 10rem 0;
     background-color: var(--background1);
-}
-
-.servicos--text {
-    margin: 0 auto;
-    width: 50%;
-    text-align: center;
 }
 
 .servicos--text {
@@ -275,13 +274,14 @@ ul {
 }
 
 .servicos--cards {
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    gap: 1.5rem;
 }
 
 .servicos--cards .card {
     width: 22rem;
     height: 22rem;
+    margin: 0 auto;
     padding: 3.6rem 3rem;
     background-color: var(--background0);
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
@@ -309,15 +309,12 @@ ul {
 /*############### Depoimentos ###############*/
 
 #depoimentos {
-    padding: 10rem 0;
+    padding: 5rem 0;
     background-color: var(--background0);
 }
 
 #depoimentos .text {
-    width: 50%;
-    margin: 0 auto;
     margin-bottom: 4rem;
-    text-align: center;
 }
 
 #depoimentos .carousel {
@@ -359,14 +356,13 @@ ul {
 /*############### Contato ###############*/
 
 #contato {
-    padding: 10rem 0;
+    padding: 5rem 0;
     background-color: var(--background1);
 }
 
 #contato .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    gap: 4rem;
 }
 
 #contato .text {
@@ -416,8 +412,8 @@ ul {
 }
 
 #footer .container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    gap: 2rem;
 }
 
 #footer .leftBox {
@@ -441,7 +437,7 @@ ul {
 
 #footer .socialMediaIcons {
     display: inline-flex;
-    justify-content: end;
+    justify-items: start;
     align-items: center;
     width: 25.25rem;
 }
@@ -449,4 +445,26 @@ ul {
 #footer .socialMediaIcons .icon {
     color: var(--background0);
     margin: 0 1rem;
+}
+
+    #header .dropdown {
+        display: none;
+    }
+
+@media screen and (max-width: 840px) {
+    #header .dropdown {
+        display: block;
+    }
+
+    #header .menu {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 841px) and (max-width: 1000px) {
+}
+
+@media screen and (min-width: 1001px) {
+
 }

@@ -260,7 +260,7 @@ section {
     top: -1.375rem;
     left: -1.375rem;
     width: 100%;
-    height: 100%;
+    height: 30%;
     background-color: var(--base-color-second);
     z-index: -1;
     border-radius: 0.25rem;
@@ -309,8 +309,6 @@ section {
 }
 
 .servicos--cards .card {
-    width: 22rem;
-    height: 22rem;
     margin: 0 auto;
     padding: 3.6rem 3rem;
     background-color: var(--background0);
@@ -495,5 +493,63 @@ section {
 }
 
 @media screen and (min-width: 1001px) {
+    .icon-close, .icon-menu {
+        display: none;
+    }
+
+    #inicio .container {
+        grid-template-columns: 35.5% 50%;
+        gap: 10.5%;
+    }
+
+    .inicio--image {
+        order: 2;
+    }
+
+    .inicio--main {
+        order: 1;
+    }
+
+    .inicio--main {
+        text-align: left;
+    }
+
+    #sobre .container {
+        grid-template-columns: 35.5% 54.5%;
+        gap: 5.7%;
+    }
+
+    .servicos--text {
+        text-align: center;
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 4rem;
+    }
+
+    .servicos--cards {
+        grid-template-columns: repeat(3, 30%);
+        justify-content: center;
+    }
+
+    #depoimentos .text {
+        width: 50%;
+        margin: 0 auto;
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+
+    #contato .container {
+        grid-template-columns: repeat(2, 36%);
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #footer .container {
+        grid-template-columns: repeat(2, 36%);
+    }
+
+    #footer .socialMediaIcons {
+        justify-content: end;
+    }
 
 }

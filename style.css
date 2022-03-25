@@ -63,6 +63,11 @@ section {
     overflow: hidden;
 }
 
+.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
 .divider1 {
     clear: both;
     height: 1px;
@@ -104,34 +109,37 @@ section {
     color: var(--base-color);
 }
 
-#header .menu {
+.header--menu {
     display: flex;
     height: 100%;
 }
 
-#header .menu--item {
+.header--menu > li {
     height: 100%;
+    width: 100%;
     padding: 0 16px;
     font-weight: 400;
     text-align: center;
 }
 
-.menu--item a {
-    display: flex;
+.header--menu a {
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     color: var(--text-color);
     height: 100%;
+    width: 100%;
 }
 
-#header .menu--item__active {
+.header--menu .active {
     border-bottom: 1px solid var(--base-color);
 }
 
-#header .menu--item__active > a {
+.header--menu .active > a {
     color: var(--base-color);
 }
 
-#header .container .open {
+#header .header--menu__open {
     display: flex;
     position: fixed;
     align-items: center;
@@ -143,27 +151,23 @@ section {
     background-color: var(--background0);
 }
 
-#header .container .open .menu--item {
+#header .header--menu__open > li{
     color: var(--text-color);
     font-size: 1.875rem;
     font-weight: 800;
 }
 
-#header .container .open .menu--item:hover > a{
+#header .header--menu__open > li:hover > a{
     color: var(--base-color);
     transition: color 0.5s;
 }
 
-.icon-close, .icon-menu {
+#header .icon-close, #header .icon-menu {
     position: absolute;
     right: var(--container-margin);
     color: var(--base-color);
 }
 
-.hide {
-    visibility: hidden;
-    opacity: 0;
-}
 
 /*############### INICIO ###############*/
 
@@ -479,11 +483,11 @@ section {
 
 @media screen and (max-width: 840px) {
 
-    #header .icon-menu {
+    #header .icon--menu {
         display: block;
     }
 
-    #header .menu {
+    .header--menu {
         display: none;
     }
 

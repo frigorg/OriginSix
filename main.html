@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
     <link href="style.css" rel="stylesheet"> 
     <link href="assets/fonts/style.css" rel="stylesheet"> 
 
@@ -16,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
@@ -29,8 +33,8 @@
                 <li><a href="#depoimentos">Depoimentos</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
-            <div class="icon-close toggle hide"></div>
-            <div class="icon-menu toggle"></div>
+            <i class="icon-close toggle hide"></i>
+            <i class="icon-menu toggle"></i>
         </nav>
     </header>
 
@@ -74,17 +78,17 @@
                 </div>
                 <div class="servicos--cards">
                     <div class="card">
-                        <div class="icon icon-woman-hair"></div>
+                        <i class="icon icon-woman-hair"></i>
                         <h2>Terapia Capilar</h2>
                         <p>Terapia completa para couro cabeludo e fios, protegendo todos os tipos de cabelos, inclusive os longos e finos.</p>
                     </div>
                     <div class="card">
-                        <div class="icon icon-trim"></div>
+                        <i class="icon icon-trim"></i>
                         <h2>Cortes</h2>
                         <p>A nossa equipe é repleta de profissionais renomados, famosos por lançarem tendências com cortes diferenciados e clássicos.</p>
                     </div>
                     <div class="card">
-                        <div class="icon icon-cosmetic"></div>
+                        <i class="icon icon-cosmetic"></i>
                         <h2>Tratamentos</h2>
                         <p>O beautysalon conta com diversos tratamentos naturais e totalmente veganos, para qualquer tipo de cabelo.</p>
                     </div>
@@ -99,23 +103,38 @@
                 <div class="text">
                     <h1>Depoimentos de quem já passou por aqui</h1>
                 </div>
-                <div class="carousel">
-                    <div class="card">
-                        <p><span>"</span> Eu sou cliente do Beautysalon há 5 anos e não troco por nada! Certamente meu cabelo mudou muito depois que comecei a tratar somente com produtos naturais e veganos. São profissionais incríveis e qualificados.</p>
-                        <div class="customer">
-                            <img src="assets/img/Wanessa.png">
-                            <p>Wanessa Souza</p>
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <blockquote class="card">
+                                <p><span>&ldquo;</span> Eu sou cliente do Beautysalon há 5 anos e não troco por nada! Certamente meu cabelo mudou muito depois que comecei a tratar somente com produtos naturais e veganos. São profissionais incríveis e qualificados.</p>
+                                <cite class="customer">
+                                    <img src="assets/img/Wanessa.jpg">
+                                    <p>Wanessa Souza</p>
+                                </cite>
+                            </blockquote>
+                        </div>
+                        <div class="swiper-slide">
+                            <blockquote class="card">
+                                <p><span>&ldquo;</span> Minha mãe frequenta o salão há anos e me levou um dia para conhecer. Minha experiência foi incrível, eu continuo fazendo o a terapia capilar e isso salvou o meu cabelo. Adoro todos os profissionais do Beautysalon.</p>
+                                <cite class="customer">
+                                    <img src="assets/img/Luna.jpg">
+                                    <p>Luna Falcão</p>
+                                </cite>
+                            </blockquote>
+                        </div> 
+                        <div class="swiper-slide">
+                            <blockquote class="card">
+                                <p><span>&ldquo;</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae fugit ipsam, porro alias nesciunt in provident qui obcaecati vel facilis! Nulla praesentium officiis eos. Adoro todos os profissionais do Beautysalon.</p>
+                                <cite class="customer">
+                                    <img src="assets/img/Thais.jpg">
+                                    <p>Thais Brito</p>
+                                </cite>
+                            </blockquote>
                         </div>
                     </div>
-                    <div class="card">
-                        <p><span>"</span> Minha mãe frequenta o salão há anos e me levou um dia para conhecer. Minha experiência foi incrível, eu continuo fazendo o a terapia capilar e isso salvou o meu cabelo. Adoro todos os profissionais do Beautysalon.</p>
-                        <div class="customer">
-                            <img src="assets/img/Luna.png">
-                            <p>Luna Falcão</p>
-                        </div>
-                    </div>
+                    <div class="swiper-pagination"></div>
                 </div>
-                <div class="dots"></div>
             </div>
         </div>
 
@@ -126,14 +145,16 @@
                 <div class="text">
                     <h1>Entre em contato com a gente!</h1>
                     <p>Entre em contato com a Beautysalon, queremos tirar suas dúvidas, ouvir suas críticas e sugestões.</p>
-                    <a class="btn">
-                        <div class="icon icon-whatsapp"></div>
+                    <a class="btn" 
+                        href="https://api.whatsapp.com/send?1=pt_br&phone=5511998456754&text=Olá! Gostaria de agendar um horário."
+                        target="_blank">
+                        <i class="icon icon-whatsapp"></i>
                         <p>Entrar em contato</p>
                     </a>
                 </div>
                 <div class="contacts">
                     <div class="card">
-                        <div class="icon icon-phone"></div>
+                        <i class="icon icon-phone"></i>
                         <p>11 99845-6754</p>
                     </div>
                     <div class="card">
@@ -141,7 +162,7 @@
                         <p>R. Amauri Souza, 346</p>
                     </div>
                     <div class="card">
-                        <div class="icon icon-mail"></div>
+                        <i class="icon icon-mail"></i>
                         <p>contato@beautysalon.com</p>
                     </div>
                 </div>
@@ -158,13 +179,15 @@
                 <p>Todos os direitos reservados.</p>
             </div>
             <div class="socialMediaIcons">
-                <div class="icon icon-instagram"></div>
-                <div class="icon icon-facebook"></div>
-                <div class="icon icon-youtube"></div>
+                <i class="icon icon-instagram"></i>
+                <i class="icon icon-facebook"></i>
+                <i class="icon icon-youtube"></i>
             </div>
         </div>
     </footer>
 
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
     
 </body>

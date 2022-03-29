@@ -38,3 +38,26 @@ window.addEventListener("scroll", ()=>{
         header.classList.remove('scroll');
     }
 });
+
+const swiper = new Swiper('.swiper', {
+  direction: 'horizontal',
+  loop: true,
+
+  slidesPerView: 2,
+  pagination: {
+    el: '.swiper-pagination',
+  },
+});
+
+
+ScrollReveal({reset: true, 
+    delay: 100,
+    origin: 'top',
+    distance: '30px'
+})
+ScrollReveal().reveal('#inicio, #sobre, #servicos, #depoimentos, #contato');
+// ScrollReveal().reveal('#inicio');
+// ScrollReveal().reveal('#sobre');
+// ScrollReveal().reveal('#servicos');
+// ScrollReveal().reveal('#depoimentos');
+// ScrollReveal().reveal('#contato');

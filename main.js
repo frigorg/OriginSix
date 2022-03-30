@@ -28,14 +28,21 @@ for (const item of list_itens) {
 } 
 
 const header = document.querySelector("#header");
+const inicio = document.querySelector("#inicio");
+const toTopBTN = document.querySelector(".toTopBTN");
 const navHeight = header.offsetHeight;
+const inicioHeight = inicio.offsetHeight;
 
 window.addEventListener("scroll", ()=>{
     if (window.scrollY >= navHeight) {
-
         header.classList.add('scroll');
     } else {
         header.classList.remove('scroll');
+    }
+    if (window.scrollY >= navHeight+inicioHeight) {
+        toTopBTN.classList.remove('hide');
+    } else {
+        toTopBTN.classList.add('hide');
     }
 });
 
@@ -55,9 +62,9 @@ ScrollReveal({reset: true,
     origin: 'top',
     distance: '30px'
 })
-ScrollReveal().reveal('#inicio, #sobre, #servicos, #depoimentos, #contato');
-// ScrollReveal().reveal('#inicio');
-// ScrollReveal().reveal('#sobre');
-// ScrollReveal().reveal('#servicos');
-// ScrollReveal().reveal('#depoimentos');
-// ScrollReveal().reveal('#contato');
+ScrollReveal().reveal( `#inicio, 
+                        #sobre, 
+                        #servicos, 
+                        #depoimentos, 
+                        #contato`);
+

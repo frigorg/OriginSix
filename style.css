@@ -90,6 +90,23 @@ section {
     background: var(--color-gradient2);
 }
 
+.toTopBTN { 
+    position: fixed;
+    display: flex;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1;
+    height: 2rem;
+    width: 2rem;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--base-color);
+    color: var(--background0);
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.3s;
+}
 
 /*############### Header ###############*/
 

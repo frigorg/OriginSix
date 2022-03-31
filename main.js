@@ -1,7 +1,7 @@
-const menu = document.querySelector("#header .header--menu")
-const menu_btn = document.querySelector("#header .icon-menu")
-const close_btn = document.querySelector("#header .icon-close")
-const list_itens = document.querySelectorAll(".header--menu li a");
+const menu = document.querySelector("#header .header-menu")
+const menuBTN = document.querySelector("#header .icon-menu")
+const closeBTN = document.querySelector("#header .icon-close")
+const listItens = document.querySelectorAll(".header-menu li a");
 
 function toggle() {
     let toggle = document.querySelectorAll("#header .toggle");
@@ -10,54 +10,39 @@ function toggle() {
     });
 }
 
-menu_btn.addEventListener("click", ()=>{
-    menu.classList.add("header--menu__open");
+menuBTN.addEventListener("click", ()=>{
+    menu.classList.add("header-menu_open");
     toggle();
 })
 
-close_btn.addEventListener("click", ()=>{
-    menu.classList.remove("header--menu__open");
+closeBTN.addEventListener("click", ()=>{
+    menu.classList.remove("header-menu_open");
     toggle();
 })
 
-for (const item of list_itens) {
+for (const item of listItens) {
     item.addEventListener("click", ()=>{
-        menu.classList.remove("header--menu__open");
+        menu.classList.remove("header-menu_open");
         toggle();
     })
 } 
 
-const header = document.querySelector("#header");
-const inicio = document.querySelector("#inicio");
-const toTopBTN = document.querySelector(".toTopBTN");
-const navHeight = header.offsetHeight;
-const inicioHeight = inicio.offsetHeight;
-
-window.addEventListener("scroll", ()=>{
-    if (window.scrollY >= navHeight) {
-        header.classList.add('scroll');
-    } else {
-        header.classList.remove('scroll');
-    }
-    if (window.scrollY >= navHeight+inicioHeight) {
-        toTopBTN.classList.remove('hide');
-    } else {
-        toTopBTN.classList.add('hide');
-    }
-});
-
 const swiper = new Swiper('.swiper', {
-  direction: 'horizontal',
-  loop: true,
-
-  slidesPerView: 2,
-  pagination: {
+direction: 'horizontal',
+loop: true,
+slidesPerView: 1,
+pagination: {
     el: '.swiper-pagination',
-  },
+},
+breakpoints: {
+840: {
+    slidesPerView: 2,
+    setWrapperSize: true,
+}
+}
 });
 
-
-ScrollReveal({reset: true, 
+ScrollReveal({
     delay: 100,
     origin: 'top',
     distance: '30px'
@@ -68,3 +53,55 @@ ScrollReveal().reveal( `#inicio,
                         #depoimentos, 
                         #contato`);
 
+
+const header = document.querySelector("#header");
+const inicio = document.querySelector("#inicio");
+const toTopBTN = document.querySelector(".toTopBTN");
+const inicioHeight = inicio.offsetHeight;
+const navHeight = header.offsetHeight;
+
+function showToTopBTNWhenScroll() {
+    if (window.scrollY >= navHeight+inicioHeight) {
+        toTopBTN.classList.remove('hide');
+    } else {
+        toTopBTN.classList.add('hide');
+    }
+}
+function modifyHeaderWhenScroll() {
+    if (window.scrollY >= navHeight) {
+        header.classList.add('scroll');
+    } else {
+        header.classList.remove('scroll');
+    }
+}
+
+const sections = document.querySelectorAll("main section[id]")
+
+function activeHeaderButtonsAsScrolls() {
+    const yOffsetToMid = window.pageYOffset + window.innerHeight / 2;
+
+    for (const section of sections) {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        const afterTopBoundary = yOffsetToMid >= sectionTop;
+        const beforeBottomBoundary = yOffsetToMid <= sectionTop + sectionHeight
+
+        if (afterTopBoundary && beforeBottomBoundary) {
+            document
+            .querySelector("#header .header-menu a[href*=" + sectionId + ']')
+            .classList.add("active");
+        } else {
+            document
+            .querySelector("#header .header-menu a[href*=" + sectionId + ']')
+            .classList.remove("active");
+        }
+    }
+}
+
+window.addEventListener("scroll", ()=>{
+    showToTopBTNWhenScroll();
+    modifyHeaderWhenScroll();
+    activeHeaderButtonsAsScrolls();
+});
